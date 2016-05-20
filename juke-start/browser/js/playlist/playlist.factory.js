@@ -22,6 +22,26 @@ juke.factory('PlaylistFactory', function ($http, $q) {
 		});
 	}
 
+	PlaylistFactory.fetchById = function (id) {
+    return $http.get('/api/playlists/' + id)
+    .then(function (response) { return response.data; })
+    // .then(AlbumFactory.convert)
+    .then(function (playlists) {
+      return playlists
+    });
+  };
+
+	PlaylistFactory.addSong = function (song, playlist) {
+		return $http.post('/api/playlists/'+playlist.id+'/songs', {playlistId: 10, songId: 100} )
+		.then(function (response) {
+			console.log(response)
+			return response.data;
+		})
+		.then(function (playlistWithSongs) {
+			return playlistWithSongs
+		});
+	};
+
 	return PlaylistFactory;
 
 })
