@@ -1,0 +1,24 @@
+<div class="well">
+  <form class="form-horizontal">
+    <fieldset>
+      <legend>New Playlist</legend>
+      <div class="form-group">
+      <form name="newPL">
+        <!-- <div class="form-group"> -->
+          <label class="col-xs-2 control-label">Name</label>
+          <div class="col-xs-10">
+            <input ng-model="newPL.name" ng-maxlength="16" class="form-control" type="text" required>
+          </div>
+        <!-- </div> -->
+      </form>
+      </div>
+      <div class="alert alert-warning" ng-show="newPL.$dirty">Enter a Playlist Name!</div>
+      <div> Playlist Name: {{newPL}} </div>
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-2">
+          <button ng-click="logScope()" ng-disabled="!newPL.name" type="submit" class="btn btn-success">Create Playlist</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
